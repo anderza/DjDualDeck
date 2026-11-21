@@ -224,6 +224,42 @@ html,body {margin:0;width:100%;height:100%;height:100dvh;overflow:hidden}
 @media(max-height:620px){.deck-head{min-height:18px;height:18px}.deck-head .skins-trigger{height:17px;min-height:17px;padding:0 6px;font-size:9px}.deck-head .status{font-size:7px;line-height:14px}}
 @media(max-width:350px){.deck-head .skins-trigger{padding:0 5px}}
 
+
+/* Compact screen fit v1.2. Android's native root already applies the system-bar insets.
+   Do not add CSS safe-area insets a second time. */
+html,body{padding:0!important;margin:0!important;height:100%!important;overflow:hidden!important}
+.app{height:100%!important;min-height:0!important;padding:1px 2px 2px!important;gap:0!important}
+.workspace{flex:1!important;min-height:0!important}
+.deck{gap:2px!important;padding-top:2px!important;padding-bottom:2px!important}
+.deck-head{margin:0!important;height:18px!important;min-height:18px!important}
+.deck-head .skins-trigger{height:17px!important;min-height:17px!important;line-height:15px!important}
+.lcd{height:39px!important;min-height:39px!important;flex:none!important;padding:2px 4px!important;overflow:hidden!important}
+.track-title{font-size:10px!important;line-height:11px!important}
+.track-sub{font-size:7px!important;line-height:9px!important;max-height:9px!important}
+.lcd .time-row{height:14px!important;line-height:14px!important}
+.time{font-size:13px!important;line-height:14px!important}
+.duration{font-size:9px!important;line-height:12px!important}
+.viz{height:10px!important;margin:0!important}
+.skin-visual{max-height:35px!important;height:calc(100% - 4px)!important;transform:scale(.72);transform-origin:top right}
+.seek{height:10px!important;min-height:10px!important}
+.eq{height:16px!important;min-height:16px!important;max-height:16px!important;margin:0!important;gap:2px!important}
+.eq-cell{height:16px!important;align-items:center!important;gap:2px!important}
+.eq-cell label{font-size:7px!important;line-height:10px!important;margin:0!important}
+.eq-slider{height:12px!important;display:flex!important;align-items:center!important;padding:0!important;margin:0!important}
+.eq-slider input{height:12px!important;margin:0!important}
+.eq-cell output{font-size:7px!important;line-height:10px!important;min-width:21px!important;width:21px!important}
+.library{min-height:0!important;flex:1 1 auto!important}
+.playlist{min-height:0!important;flex:1 1 auto!important;height:auto!important}
+.vol-panel{top:20px!important}
+@media(max-height:620px){
+ .deck{gap:1px!important}
+ .lcd{height:33px!important;min-height:33px!important}
+ .lcd .viz{height:7px!important}
+ .track-sub{display:none!important}
+ .time{font-size:12px!important}
+ .eq{height:15px!important;min-height:15px!important}
+}
+
 </style></head><body>
 <div class="app">
 <main class="workspace"><section class="deck" id="deckA"></section><aside class="mixer" aria-label="Центральный микшер"><div class="mixer-title">MIXER<br><span style="color:var(--accent);font-size:10px">A / B</span></div><div class="mix-badge"><span class="mix-a">A</span><span class="mix-b">B</span></div><div class="mix-rail"><div class="mix-label">A</div><input id="cross" class="vertical" aria-label="Кроссфейдер от A к B" type="range" min="0" max="100" value="50"><div class="mix-label">B</div></div><div class="cross-nums"><span id="aMix">71%</span><span id="bMix">71%</span></div><div class="mixer-divider"></div><button class="mixer-btn" id="center">CENTER</button><button class="mixer-btn" id="record">● REC MIX</button><div class="mix-label">EQUAL POWER<br>CROSSFADE</div></aside><section class="deck" id="deckB"></section></main>
