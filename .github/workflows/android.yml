@@ -1,0 +1,37 @@
+name: Build Android APK
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - name: Install SDK
+        run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
+      - name: Build debug APK
+        run: gradle --no-daemon assembleDebug
+      - name: Rename APK
+        run: cp app/build/outputs/apk/debug/app-debug.apk DJ-Dual-Deck.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: DJ-Dual-Deck-APK
+          path: DJ-Dual-Deck.apk
+          if-no-files-found: error
+      - name: Publish GitHub Release (tag push)
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "${GITHUB_REF_NAME}" DJ-Dual-Deck.apk --title "DJ Dual Deck ${GITHUB_REF_NAME}" --notes "Android preview APK" --generate-notes
