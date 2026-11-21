@@ -5,6 +5,10 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.webkit.WebView;
+import android.widget.FrameLayout;
+import android.view.WindowInsets;
+import android.graphics.Insets;
+import android.os.Build;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.ValueCallback;
@@ -27,7 +31,23 @@ public class MainActivity extends Activity {
     }catch(Exception ex){pending=null;callback.onReceiveValue(null);return false;}
    }
   });
-  setContentView(web);web.loadUrl("file:///android_asset/index.html");
+  FrameLayout root=new FrameLayout(this);
+  root.addView(web,new FrameLayout.LayoutParams(-1,-1));
+  root.setOnApplyWindowInsetsListener((view,windowInsets)->{
+   if(Build.VERSION.SDK_INT>=30){
+    Insets in=windowInsets.getInsets(WindowInsets.Type.systemBars()|WindowInsets.Type.displayCutout());
+    view.setPadding(in.left,in.top,in.right,in.bottom);
+   }else{
+    view.setPadding(windowInsets.getSystemWindowInsetLeft(),windowInsets.getSystemWindowInsetTop(),windowInsets.getSystemWindowInsetRight(),windowInsets.getSystemWindowInsetBottom());
+   }
+   return windowInsets;
+  });
+  if(Build.VERSION.SDK_INT>=30)getWindow().setDecorFitsSystemWindows(false);
+  getWindow().setStatusBarColor(0xff090d13);
+  getWindow().setNavigationBarColor(0xff090d13);
+  setContentView(root);
+  root.requestApplyInsets();
+  web.loadUrl("file:///android_asset/index.html");
  }
  @Override protected void onActivityResult(int req,int result,Intent data){super.onActivityResult(req,result,data);
   if(req!=CHOOSE || pending==null)return;
