@@ -1,13 +1,12 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
 <path android:fillColor="#08090D" android:pathData="M0,0h108v108h-108z"/>
-<path android:strokeColor="#ED242C" android:strokeWidth="2" android:fillColor="@android:color/transparent" android:pathData="M5,17 L5,91 Q5,103 17,103 L91,103 Q103,103 103,91 L103,17 Q103,5 91,5 L17,5 Q5,5 5,17z"/>
+<path android:strokeColor="#FFFFFF" android:strokeWidth="1.5" android:fillColor="@android:color/transparent" android:pathData="M5,17 L5,91 Q5,103 17,103 L91,103 Q103,103 103,91 L103,17 Q103,5 91,5 L17,5 Q5,5 5,17z"/>
 <path android:strokeColor="#F5F5F5" android:strokeWidth="7" android:strokeLineCap="round" android:fillColor="@android:color/transparent" android:pathData="M20,49 C20,3 88,3 88,49"/>
 <path android:fillColor="#F5F5F5" android:pathData="M13,44 Q13,39 19,39 L25,39 Q29,39 29,44 L29,68 Q29,73 25,73 L19,73 Q13,73 13,68z"/>
 <path android:fillColor="#ED242C" android:pathData="M15,46h5v21h-5z"/>
 <path android:fillColor="#F5F5F5" android:pathData="M79,44 Q79,39 85,39 L91,39 Q95,39 95,44 L95,68 Q95,73 91,73 L85,73 Q79,73 79,68z"/>
 <path android:fillColor="#ED242C" android:pathData="M88,46h5v21h-5z"/>
-<path android:fillColor="#F5F5F5" android:pathData="M31,39 L43,39 Q57,39 57,55 Q57,72 43,72 L31,72z M39,47 L39,64 L43,64 Q49,64 49,55 Q49,47 43,47z" android:fillType="evenOdd"/>
-<path android:fillColor="#ED242C" android:pathData="M76,46 L65,46 Q61,46 61,55 Q61,65 66,65 L70,65 L70,60 L65,60 L65,53 L78,53 L78,72 L66,72 Q53,72 53,55 Q53,39 66,39 L76,39z"/>
+<path android:fillColor="#FF0808" android:strokeColor="#FFFFFF" android:strokeWidth="1.2" android:strokeLineJoin="round" android:pathData="M28,31 L42,31 L54,59 L66,31 L80,31 L62,73 L46,73 Z"/>
 <path android:fillColor="#F5F5F5" android:pathData="M29,84h5v6h-5z M38,80h5v10h-5z M47,77h5v13h-5z M74,84h5v6h-5z"/>
 <path android:fillColor="#ED242C" android:pathData="M56,75h5v15h-5z M65,80h5v10h-5z"/>
 </vector>
